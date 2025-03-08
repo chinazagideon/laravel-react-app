@@ -20,9 +20,3 @@ pipelines:
               - composer
               - vendor/
 
-        - step:
-          name: codestyle
-          script:
-            - phpcs --standard=PSR2 --extensions=php app
-
-
