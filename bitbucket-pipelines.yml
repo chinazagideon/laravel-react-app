@@ -18,4 +18,10 @@ pipelines:
               - php artisan test
             caches:
               - composer
+        - step:
+            name: codestyle
+            script:
+              - phpcs --standard=PSR2 --extensions=php app
+
+
 
