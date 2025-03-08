@@ -1,0 +1,21 @@
+version: '3'
+services:
+  web:
+    image: nginx:latest
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./laravel-react-app:/var/www
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./laravel-react-app:/var/www
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: laravel_db
+    volumes:
+      - ./mysql-data:/var/lib/mysql
