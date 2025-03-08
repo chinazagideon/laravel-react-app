@@ -1,0 +1,13 @@
+image: lorisleiva/laravel-docker:latest
+
+# This is the name of our job, call it whatever you want.
+phpunit:
+
+  # This is used to categorize jobs. Jobs within the same stage are run in parallel.
+  stage: test
+  #This is the list of commands executed by the job.
+  script:
+  - composer install --prefer-dist --no-ansi --no-interaction --no-progress --no-scripts
+  - cp .env.example .env
+  - php artisan key:generate
+  - phpunit --coverage-text --colors=never
