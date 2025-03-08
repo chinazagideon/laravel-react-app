@@ -19,7 +19,6 @@ pipelines:
             caches:
               - composer
               - vendor/
-            key: ${CI_COMMIT_REF_NAME}
 
         - step:
           name: codestyle
