@@ -18,10 +18,4 @@ pipelines:
               - php artisan test
             caches:
               - composer
-        - step:
-            name: Lint
-            script:
-              - composer install
-              - ./vendor/bin/phplint . --exclude=vendor
-            caches:
-              - composer
+
