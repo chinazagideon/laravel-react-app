@@ -22,7 +22,6 @@ pipelines:
 
         - step:
           name: codestyle
-          caches: {} #override with an empty object.
           script:
             - phpcs --standard=PSR2 --extensions=php app
 
