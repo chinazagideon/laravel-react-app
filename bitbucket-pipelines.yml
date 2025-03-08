@@ -19,3 +19,18 @@ pipelines:
             caches:
               - composer
 
+        - step:
+          name: codestyle
+          cache: {} #override with an empty object.
+          script:
+            - phpcs --standard=PSR2 --extensions=php app
+
+  cache:
+  #We key the cache using the branch's unique identifier.
+    key: ${CI_COMMIT_REF_SLUG}
+
+    paths:
+      #we only want to cache the vendor folder
+      - vendor/
+
+
